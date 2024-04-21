@@ -80,15 +80,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ToggleInvincibility"",
-                    ""type"": ""Button"",
-                    ""id"": ""464bca91-654a-452a-bf9a-79079d5d0686"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -201,17 +192,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""18de0d0b-6a2b-495c-920c-a31ba8cb9ac1"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleInvincibility"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,7 +218,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_LightAttack = m_Gameplay.FindAction("LightAttack", throwIfNotFound: true);
         m_Gameplay_HeavyAttack = m_Gameplay.FindAction("HeavyAttack", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
-        m_Gameplay_ToggleInvincibility = m_Gameplay.FindAction("ToggleInvincibility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,7 +285,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LightAttack;
     private readonly InputAction m_Gameplay_HeavyAttack;
     private readonly InputAction m_Gameplay_Sprint;
-    private readonly InputAction m_Gameplay_ToggleInvincibility;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -317,7 +295,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @LightAttack => m_Wrapper.m_Gameplay_LightAttack;
         public InputAction @HeavyAttack => m_Wrapper.m_Gameplay_HeavyAttack;
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
-        public InputAction @ToggleInvincibility => m_Wrapper.m_Gameplay_ToggleInvincibility;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -345,9 +322,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @ToggleInvincibility.started += instance.OnToggleInvincibility;
-            @ToggleInvincibility.performed += instance.OnToggleInvincibility;
-            @ToggleInvincibility.canceled += instance.OnToggleInvincibility;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -370,9 +344,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @ToggleInvincibility.started -= instance.OnToggleInvincibility;
-            @ToggleInvincibility.performed -= instance.OnToggleInvincibility;
-            @ToggleInvincibility.canceled -= instance.OnToggleInvincibility;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -407,6 +378,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnToggleInvincibility(InputAction.CallbackContext context);
     }
 }
