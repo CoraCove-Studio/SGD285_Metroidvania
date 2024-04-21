@@ -30675,6 +30675,10 @@ PrefabInstance:
       propertyPath: jumpSpeed
       value: 4.95
       objectReference: {fileID: 0}
+    - target: {fileID: 6657283746617213162, guid: cd9658ad11c954d48bdf99747dafe9b0, type: 3}
+      propertyPath: sprintingSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6887638005184588594, guid: cd9658ad11c954d48bdf99747dafe9b0, type: 3}
       propertyPath: m_Enabled
       value: 1

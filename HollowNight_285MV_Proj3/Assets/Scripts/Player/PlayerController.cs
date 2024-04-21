@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
     private PlayerLook playerLook;
     private Vector2 moveInput;
     private bool isGrounded;
+    private bool isSprinting;
     private float vSpeed = 0f; // Vertical speed
     [SerializeField] private float speed = 2f; // Horizontal movement speed
+    [SerializeField] private float sprintingSpeed = 3f; // Horizontal movement speed
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float gravity = 9.8f;
     [SerializeField] private Animator animator;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         controlScheme.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controlScheme.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
         controlScheme.Gameplay.Jump.performed += ctx => AttemptJump();
+        controlScheme.Gameplay.LightAttack.performed += ctx => LightAttack();
     }
 
     private void OnEnable()
@@ -38,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = controller.isGrounded; // You can replace this with IsReallyGrounded if needed
+        isGrounded = IsReallyGrounded(0.1f);
         Debug.DrawLine(transform.position, transform.position + Vector3.down * (controller.height / 2 + 0.1f), isGrounded ? Color.green : Color.red);
     }
 
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        isSprinting = controlScheme.Gameplay.Sprint.IsPressed();
+
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
         forward.y = 0;
@@ -63,10 +68,19 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         Vector3 movementDirection = moveInput.y * forward + moveInput.x * right;
-        Vector3 movement = speed * movementDirection * Time.deltaTime;
+        movementDirection.Normalize();  // Normalize to maintain consistent speed in all directions
+        Vector3 movement = (isSprinting ? sprintingSpeed : speed) * movementDirection * Time.deltaTime;
         movement.y = vSpeed * Time.deltaTime; // Apply vertical speed
-        animator.SetFloat("WalkingSpeed", Mathf.Abs(movement.z));
+
+        animator.SetFloat("WalkingSpeed", moveInput.magnitude * (isSprinting ? sprintingSpeed : speed));
         controller.Move(movement);
+    }
+
+    bool IsReallyGrounded(float distance)
+    {
+        RaycastHit hit;
+        bool hasHit = Physics.Raycast(transform.position, -Vector3.up, out hit, controller.height / 2 + distance);
+        return hasHit && hit.distance < controller.skinWidth + 0.1f;
     }
 
     private void ApplyGravity()
@@ -93,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
     private void LightAttack()
     {
-
+        print("Light attack attempted.");
+        animator.SetTrigger("LightAttack");
     }
 }
