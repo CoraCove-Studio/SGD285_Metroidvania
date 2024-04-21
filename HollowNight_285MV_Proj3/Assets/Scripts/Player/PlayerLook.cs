@@ -4,8 +4,8 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private float xRotation = 0f;
-    [SerializeField] private float xSensitivity = 25f;
-    [SerializeField] private float ySensitivity = 25f;
+    [SerializeField] private float xSensitivity = 10f;
+    [SerializeField] private float ySensitivity = 10f;
     [SerializeField] private float degreeClamp = 52f;
 
     private void Awake()
