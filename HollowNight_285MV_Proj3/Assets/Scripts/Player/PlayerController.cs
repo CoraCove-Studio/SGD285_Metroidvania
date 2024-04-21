@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,15 +9,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private bool isGrounded;
     private float vSpeed = 0f; // Vertical speed
-    public float speed = 5f; // Horizontal movement speed
-    public float jumpSpeed = 8f;
-    public float gravity = 9.8f;
+    [SerializeField] private float speed = 2f; // Horizontal movement speed
+    [SerializeField] private float jumpSpeed = 8f;
+    [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
         controlScheme = new PlayerControls();
         controller = GetComponent<CharacterController>();
         playerLook = GetComponent<PlayerLook>();
+        animator = GetComponent<Animator>();
 
         controlScheme.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controlScheme.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movementDirection = moveInput.y * forward + moveInput.x * right;
         Vector3 movement = speed * movementDirection * Time.deltaTime;
         movement.y = vSpeed * Time.deltaTime; // Apply vertical speed
-
+        animator.SetFloat("WalkingSpeed", Mathf.Abs(movement.z));
         controller.Move(movement);
     }
 
@@ -86,5 +89,10 @@ public class PlayerController : MonoBehaviour
             print("Jumping!");
             vSpeed = jumpSpeed; // Ensure this is only called when grounded
         }
+    }
+
+    private void LightAttack()
+    {
+
     }
 }
