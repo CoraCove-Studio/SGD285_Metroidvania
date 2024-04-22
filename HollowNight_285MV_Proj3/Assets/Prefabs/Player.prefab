@@ -348,7 +348,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.09
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 61
   orthographic: 0
@@ -874,6 +874,7 @@ GameObject:
   - component: {fileID: 6887638005184588594}
   - component: {fileID: 6657283746617213162}
   - component: {fileID: 2335303603516637003}
+  - component: {fileID: 1267308240653043443}
   m_Layer: 1
   m_Name: Player
   m_TagString: Untagged
@@ -891,7 +892,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.57892394, y: 0.57892394, z: 0.57892394}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1048104641034411601}
@@ -908,7 +909,7 @@ Animator:
   m_GameObject: {fileID: 2210646396933339408}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0ad932253e8dc8841948afa5d1a0d051, type: 3}
-  m_Controller: {fileID: 9100000, guid: 411728ec8fb1fde45b8b971451115f05, type: 2}
+  m_Controller: {fileID: 9100000, guid: bbf638ec0edf9b24c93fc0f438b9ebb0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -942,7 +943,7 @@ CharacterController:
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!136 &6887638005184588594
@@ -980,8 +981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed528165bb0cb8949b07ef36a1d74544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  cameraTransform: {fileID: 1663640509060559747}
+  speed: 3
+  sprintingSpeed: 5
+  jumpSpeed: 4.95
+  gravity: 9.8
+  animator: {fileID: 9100000, guid: bbf638ec0edf9b24c93fc0f438b9ebb0, type: 2}
 --- !u!114 &2335303603516637003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,9 +1000,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 5934260431508690687}
   xRotation: 0
-  xSensitivity: 90
-  ySensitivity: 90
+  xSensitivity: 25
+  ySensitivity: 25
   degreeClamp: 52
+--- !u!114 &1267308240653043443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210646396933339408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9365944b4815000458149a344b866bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2285650799985767658
 GameObject:
   m_ObjectHideFlags: 0
