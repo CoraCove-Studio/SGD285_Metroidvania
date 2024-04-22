@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        controlScheme.Gameplay.ToggleInvincibility.performed += ctx => ToggleInvincibility();
+        //controlScheme.Gameplay.ToggleInvincibility.performed += ctx => ToggleInvincibility();
     }
 
     private void ToggleInvincibility()
