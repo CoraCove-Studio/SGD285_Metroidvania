@@ -106,9 +106,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4948631315519279214}
   - component: {fileID: 5501080109094444313}
+  - component: {fileID: 8963775940781731433}
+  - component: {fileID: 2874232810928831787}
+  - component: {fileID: 3480917223033932803}
   m_Layer: 0
   m_Name: DragonBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +154,73 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8963775940781731433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280735706346545508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03184461d042424d9e7fde2a9431c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  movementSpeed: 1.5
+  clawColliderLeft: {fileID: 4986183515583238274}
+  clawColliderRight: {fileID: 3044089407602974656}
+  mouthCollider: {fileID: 7597997737471152534}
+  rb: {fileID: 2874232810928831787}
+  detectionRadius: 30
+--- !u!54 &2874232810928831787
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280735706346545508}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3480917223033932803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280735706346545508}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.285332, y: 2.6670702, z: 6.1758265}
+  m_Center: {x: 0.09608734, y: 1.2388281, z: 0.22208858}
 --- !u!1 &358014505706913811
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,9 +866,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423159538274242803}
+  - component: {fileID: 4986183515583238274}
   m_Layer: 0
   m_Name: Hand_L
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,6 +893,27 @@ Transform:
   - {fileID: 3818253460082875132}
   m_Father: {fileID: 7995019304962742027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4986183515583238274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389150159254021506}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 131.74013, y: 26.48787, z: 49.50807}
+  m_Center: {x: -66.37021, y: 12.743963, z: 0.859409}
 --- !u!1 &2632604628913469093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,9 +1958,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2805314171438408099}
+  - component: {fileID: 7597997737471152534}
   m_Layer: 0
   m_Name: Jaw01
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1889,6 +1982,27 @@ Transform:
   - {fileID: 3480222306700066220}
   m_Father: {fileID: 5838358392139731703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7597997737471152534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453572729316353753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 115.04561, y: 43.645878, z: 57.171856}
+  m_Center: {x: -57.022816, y: -21.32299, z: -0.88454574}
 --- !u!1 &4464622941679787284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,9 +2012,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4741107070687733908}
+  - component: {fileID: 3044089407602974656}
   m_Layer: 0
   m_Name: Hand_R
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1924,6 +2039,27 @@ Transform:
   - {fileID: 6946950726216699825}
   m_Father: {fileID: 4335398123305537735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3044089407602974656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464622941679787284}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 131.74013, y: 26.48787, z: 49.50807}
+  m_Center: {x: -66.37021, y: 12.743963, z: 0.859409}
 --- !u!1 &4497532756823872245
 GameObject:
   m_ObjectHideFlags: 0

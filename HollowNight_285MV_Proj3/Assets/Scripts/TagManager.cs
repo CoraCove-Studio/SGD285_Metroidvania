@@ -15,4 +15,5 @@ public class TagManager : MonoBehaviour
     public const string TRASHMOB = "TrashMob";
     public const string BOSS = "Boss";
     public const string WIN = "Win";
+    public const string SWORD = "Sword";
 }

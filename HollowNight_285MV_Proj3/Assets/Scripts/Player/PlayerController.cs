@@ -1,3 +1,10 @@
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
+
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -15,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float gravity = 9.8f;
     [SerializeField] private Animator animator;
+    [SerializeField] private Collider swordCollider;
 
     private void Awake()
     {
@@ -108,6 +116,13 @@ public class PlayerController : MonoBehaviour
     private void LightAttack()
     {
         print("Light attack attempted.");
+        swordCollider.enabled = true;
         animator.SetTrigger("LightAttack");
+        Invoke(nameof(DisableColliders), 1f);
+    }
+
+    private void DisableColliders()
+    {
+        swordCollider.enabled = false;
     }
 }

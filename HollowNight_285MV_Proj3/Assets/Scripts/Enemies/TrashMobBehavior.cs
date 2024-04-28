@@ -2,8 +2,7 @@
 // Script Contributors:
 // Emma Cole
 ///////////////////////
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,7 +36,7 @@ public class TrashMobBehavior : MonoBehaviour
         {
             playerSeen = true;
             currentState = AIState.attack;
-            InvokeRepeating("ShootAtPlayer", 0f, 4.0f);
+            InvokeRepeating(nameof(ShootAtPlayer), 0f, 4.0f);
         }
         else
         {
@@ -90,7 +89,7 @@ public class TrashMobBehavior : MonoBehaviour
     //called when player hits the enemy
     public void Die()
     {
-        CancelInvoke("ShootAtPlayer");
-        this.gameObject.SetActive(false);
+        CancelInvoke(nameof(ShootAtPlayer));
+        gameObject.SetActive(false);
     }
 }

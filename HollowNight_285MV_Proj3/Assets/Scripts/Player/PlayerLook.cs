@@ -1,3 +1,10 @@
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
+
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour

@@ -1,3 +1,10 @@
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (health >= damageAmount)
+        if (invincible == false)
         {
             health = Mathf.Clamp(health - damageAmount, 0, maxHealth);
             if (health == 0)
