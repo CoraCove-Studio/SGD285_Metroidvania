@@ -17,6 +17,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private Collider mouthCollider;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float detectionRadius = 30f;  // Distance to consider the player in the arena
+    [SerializeField] private DoorAnim door;
     private Animator animator;
     private Transform playerTransform;
     private int currentHealth;
@@ -173,6 +174,7 @@ public class BossController : MonoBehaviour
         animator.SetTrigger("Die");
         isPlayerInArena = false;
         isDead = true;
+        door.OpenDoor();
     }
 
     private void BasicAttack()
