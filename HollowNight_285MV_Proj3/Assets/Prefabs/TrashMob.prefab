@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 6859210495304231575}
   m_Layer: 0
   m_Name: TrashMob
-  m_TagString: Untagged
+  m_TagString: TrashMob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31150b5b1255ea2488bed4153007d247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  playerObject: {fileID: 0}
 --- !u!1 &3673440154762169762
 GameObject:
   m_ObjectHideFlags: 0
