@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TrashMob
   - Boss
+  - Win
   layers:
   - Default
   - TransparentFX

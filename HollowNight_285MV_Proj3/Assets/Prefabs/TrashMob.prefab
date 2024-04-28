@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 1353012312181483395}
   - component: {fileID: 6374945194025082905}
   - component: {fileID: 6859210495304231575}
+  - component: {fileID: 2035100637307109051}
   m_Layer: 0
   m_Name: TrashMob
   m_TagString: TrashMob
@@ -797,6 +798,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
+--- !u!136 &2035100637307109051
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3319521142777816746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23685506
+  m_Height: 1.0755304
+  m_Direction: 1
+  m_Center: {x: -0.015431731, y: 0.5866731, z: 0.00000005941912}
 --- !u!1 &3673440154762169762
 GameObject:
   m_ObjectHideFlags: 0
