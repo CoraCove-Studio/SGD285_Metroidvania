@@ -32,7 +32,7 @@ public class TrashMobBehavior : MonoBehaviour
     private void PlayerSense()
     {
         distanceFromPlayer = Vector3.Distance(transform.position, playerObject.transform.position);
-        if(distanceFromPlayer <= 10.0f && !playerSeen)
+        if(distanceFromPlayer <= 6.0f && !playerSeen)
         {
             playerSeen = true;
             currentState = AIState.attack;
