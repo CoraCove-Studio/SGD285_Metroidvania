@@ -16,4 +16,5 @@ public class TagManager : MonoBehaviour
     public const string BOSS = "Boss";
     public const string WIN = "Win";
     public const string SWORD = "Sword";
+    public const string FOOD = "Food";
 }

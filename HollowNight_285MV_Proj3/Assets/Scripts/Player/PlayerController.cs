@@ -11,11 +11,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
-    private PlayerControls controlScheme;
+    public PlayerControls controlScheme;
     private PlayerLook playerLook;
     private Vector2 moveInput;
     private bool isGrounded;
     private bool isSprinting;
+    private bool canMove = true;
     private float vSpeed = 0f; // Vertical speed
     [SerializeField] private float speed = 2f; // Horizontal movement speed
     [SerializeField] private float sprintingSpeed = 3f; // Horizontal movement speed
@@ -55,13 +56,22 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplyGravity();
-        HandleMovement();
+        if (canMove)
+        {
+            ApplyGravity();
+            HandleMovement();
+        }
     }
 
     private void LateUpdate()
     {
         playerLook.ProcessLook(controlScheme.Gameplay.Look.ReadValue<Vector2>());
+    }
+
+    public void PreventMovement()
+    {
+        canMove = false;
+        animator.SetFloat("WalkingSpeed", 0);
     }
 
     private void HandleMovement()

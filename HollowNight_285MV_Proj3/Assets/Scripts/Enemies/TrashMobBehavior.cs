@@ -33,8 +33,11 @@ public class TrashMobBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        PlayerSense();
-        HandleStates(currentState);
+        if (isDead == false)
+        {
+            PlayerSense();
+            HandleStates(currentState);
+        }
     }
 
     private void PlayerSense()
@@ -45,11 +48,6 @@ public class TrashMobBehavior : MonoBehaviour
             playerSeen = true;
             currentState = AIState.attack;
             InvokeRepeating(nameof(ShootAtPlayer), 0f, 4.0f);
-
-            //if (!isDead)
-            //{
-            //    InvokeRepeating("Run", .9f, .9166f);
-            //}
         }
         else
         {
@@ -86,7 +84,11 @@ public class TrashMobBehavior : MonoBehaviour
             {
                 PlayAnimationByName("attack");
                 print("hit player");
-                //Player's Take Damage Here
+                PlayerManager pm = hitInfo.collider.gameObject.GetComponentInParent<PlayerManager>();
+                if (pm != null)
+                {
+                    pm.TakeDamage(15);
+                }
             }
             else
             {
@@ -104,6 +106,7 @@ public class TrashMobBehavior : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        agent.enabled = false;
         CancelInvoke(nameof(ShootAtPlayer));
         PlayAnimationByName("die");
         agent.areaMask = 0;

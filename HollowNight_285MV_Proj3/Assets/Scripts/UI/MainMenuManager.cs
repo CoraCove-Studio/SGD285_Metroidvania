@@ -14,6 +14,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _menuPanels = new();
     [SerializeField] private GameObject _activePanel;
+    [SerializeField] private TextMeshProUGUI textObject;
     private readonly string winMessage = "You have prevailed!";
     private readonly string lossMessage = "You have expired.";
 
@@ -42,7 +43,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void DisplayWinMessage()
     {
-        TextMeshProUGUI textObject = _activePanel.GetComponent<TextMeshProUGUI>();
         textObject.text = winMessage;
         _activePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -50,8 +50,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void DisplayLossMessage()
     {
-        TextMeshProUGUI textObject = _activePanel.GetComponent<TextMeshProUGUI>();
         textObject.text = lossMessage;
+        _activePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -11,19 +11,24 @@ public class PlayerManager : MonoBehaviour
 {
     private PlayerControls controlScheme;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private GameObject invincibilityIndicator;
+    [SerializeField] private MainMenuManager menuManager;
+    [SerializeField] private PlayerController pc;
     private readonly int maxHealth = 100;
     private int health;
     private bool invincible = false;
 
+
     private void Awake()
     {
         health = maxHealth;
-        //controlScheme.Gameplay.ToggleInvincibility.performed += ctx => ToggleInvincibility();
     }
 
-    private void ToggleInvincibility()
+    public void ToggleInvincibility()
     {
+        print("invincibility toggled!");
         invincible = !invincible;
+        invincibilityIndicator.SetActive(invincible);
     }
 
     public void TakeDamage(int damageAmount)
@@ -47,18 +52,24 @@ public class PlayerManager : MonoBehaviour
 
     private void Die()
     {
-        // call loss panel or lose life
+        print("Player died!");
+        pc.PreventMovement();
+        menuManager.DisplayLossMessage();
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.K))
-    //    {
-    //        TakeDamage(15);
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.H))
-    //    {
-    //        Heal(15);
-    //    }
-    //}
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    TakeDamage(15);
+        //}
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    Heal(15);
+        //}
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInvincibility();
+        }
+    }
 }
