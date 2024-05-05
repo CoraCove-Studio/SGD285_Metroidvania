@@ -16,6 +16,7 @@ public class TrashMobBehavior : MonoBehaviour
     private NavMeshAgent agent;
 
     private Animation anim;
+    private bool isDead = false;
     
     [SerializeField] private GameObject playerObject;
     private float distanceFromPlayer;
@@ -43,8 +44,12 @@ public class TrashMobBehavior : MonoBehaviour
         {
             playerSeen = true;
             currentState = AIState.attack;
-            InvokeRepeating("Run", .9f, .9166f);
             InvokeRepeating(nameof(ShootAtPlayer), 0f, 4.0f);
+
+            //if (!isDead)
+            //{
+            //    InvokeRepeating("Run", .9f, .9166f);
+            //}
         }
         else
         {
@@ -98,6 +103,7 @@ public class TrashMobBehavior : MonoBehaviour
     //called when player hits the enemy
     public void Die()
     {
+        isDead = true;
         CancelInvoke(nameof(ShootAtPlayer));
         PlayAnimationByName("die");
         agent.areaMask = 0;
