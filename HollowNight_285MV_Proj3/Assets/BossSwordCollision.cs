@@ -5,7 +5,6 @@ using UnityEngine;
 public class BossSwordCollision : MonoBehaviour
 {
     public GameObject hit_FX;
-    private bool hit_FX_Created = false;
 
     private void OnTriggerEnter(Collider other)
     {

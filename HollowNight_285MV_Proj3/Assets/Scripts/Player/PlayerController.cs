@@ -5,7 +5,6 @@
 // 
 ///////////////////////
 
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
