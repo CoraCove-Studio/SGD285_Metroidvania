@@ -14925,6 +14925,7 @@ MonoBehaviour:
   - {fileID: 208109614}
   - {fileID: 99028228}
   _activePanel: {fileID: 1210753419}
+  textObject: {fileID: 0}
 --- !u!82 &1178392020
 AudioSource:
   m_ObjectHideFlags: 0

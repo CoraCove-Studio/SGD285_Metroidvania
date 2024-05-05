@@ -11,7 +11,7 @@ public class BossSwordCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag(TagManager.BOSS))
         {
-            BossController bossController = other.gameObject.GetComponent<BossController>();
+            BossController bossController = other.gameObject.GetComponentInParent<BossController>();
             bossController.TakeDamage(15);
         }
         else if (other.gameObject.CompareTag(TagManager.TRASHMOB))
