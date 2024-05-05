@@ -52228,22 +52228,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.43333334
-    functionName: TurnOnStrikePoint_2
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.93333334
     functionName: TurnOffStrikePoint_1
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.93333334
-    functionName: TurnOffStrikePoint_2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

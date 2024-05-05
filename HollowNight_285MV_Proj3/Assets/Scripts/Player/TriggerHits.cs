@@ -12,17 +12,8 @@ public class TriggerHits : MonoBehaviour
         StrikingPoint_1.SetActive(true);
     }
 
-    public void TurnOnStrikePoint_2()
-    {
-        StrikingPoint_2.SetActive(true);
-    }
-
     public void TurnOffStrikePoint_1()
     {
         StrikingPoint_1.SetActive(false);
-    }
-    public void TurnOffStrikePoint_2()
-    {
-        StrikingPoint_2.SetActive(false);
     }
 }
