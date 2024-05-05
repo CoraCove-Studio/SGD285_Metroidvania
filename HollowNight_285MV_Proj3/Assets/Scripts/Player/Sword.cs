@@ -56,13 +56,13 @@ public class Sword : MonoBehaviour
         {
             hit_FX_Created = true;
             Instantiate(hit_FX, whereHitOccured, Quaternion.identity);
-            Invoke("DeactivateAfterTime", 1.5f);
+            Invoke("ResetHitEffect", 1.5f);  // Rename method for clarity
         }
     }
 
-    void DeactivateAfterTime()
+    void ResetHitEffect()
     {
-        gameObject.SetActive(false);
+        // Reset only the effect creation state, do not deactivate the gameObject
         hit_FX_Created = false;
     }
 
