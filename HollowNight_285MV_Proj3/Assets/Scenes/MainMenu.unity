@@ -1220,7 +1220,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Words and phrases on how to hit buttons and complete tasks.
+  m_text: 'WASD - Navigation
+
+    Shift - Sprint
+
+    Space - Jump
+
+    Left Mouse
+    Button - Strike
+
+
+    Defeat the boss and reach the treasure room!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c02b9f30489c6af4c9ad74d36ffd47a7, type: 2}
   m_sharedMaterial: {fileID: 8639852522904066959, guid: c02b9f30489c6af4c9ad74d36ffd47a7, type: 2}
@@ -1254,7 +1264,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6157,7 +6167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 234.505, y: -90}
+  m_AnchoredPosition: {x: 234.505, y: -114.952515}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459477183
@@ -10050,7 +10060,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Words and phrases on who did the cool things with words and phrases.
+  m_text: 'R. Huggins - Animations, programming, UI Design
+
+
+    E. Cole - AI, Level
+    Design, Enemies
+
+
+    Z. Baukhagen - Gameplay programming, further implementation'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c02b9f30489c6af4c9ad74d36ffd47a7, type: 2}
   m_sharedMaterial: {fileID: 8639852522904066959, guid: c02b9f30489c6af4c9ad74d36ffd47a7, type: 2}
@@ -10077,14 +10094,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.7
-  m_fontSizeBase: 12.7
+  m_fontSize: 11.7
+  m_fontSizeBase: 11.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -21714,7 +21731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 234.505, y: -90}
+  m_AnchoredPosition: {x: 234.505, y: -114.952515}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857166245
