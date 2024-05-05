@@ -32,20 +32,12 @@ public class Sword : MonoBehaviour
 
             Debug.Log("enemy hit");
 
-            for (int i = 0; i < hit.Length; i++)
+            if (hit[0].CompareTag(TagManager.TRASHMOB))
             {
-                if (hit[i].CompareTag(TagManager.BOSS))
-                {
-                    CreateSwordTrail(hitFX_Pos);
-                    BossController bossController = hit[i].GetComponent<BossController>();
-                    bossController.TakeDamage(15);
-                }
-                else if (hit[i].CompareTag(TagManager.TRASHMOB))
-                {
-                    CreateSwordTrail(hitFX_Pos);
-                    TrashMobBehavior mob = hit[i].GetComponent<TrashMobBehavior>();
-                    mob.Die();
-                }
+                CreateSwordTrail(hitFX_Pos);
+                TrashMobBehavior mob = hit[0].GetComponent<TrashMobBehavior>();
+                mob.Die();
+
             }
         }
     }
@@ -73,10 +65,10 @@ public class Sword : MonoBehaviour
     //        BossController bossController = other.gameObject.GetComponent<BossController>();
     //        bossController.TakeDamage(15);
     //    }
-    //    else if (gameObject.CompareTag(TagManager.TRASHMOB))
-    //    {
-    //        TrashMobBehavior mob = other.GetComponent<TrashMobBehavior>();
-    //        mob.Die();
-    //    }
+    ////    else if (gameObject.CompareTag(TagManager.TRASHMOB))
+    ////    {
+    ////        TrashMobBehavior mob = other.GetComponent<TrashMobBehavior>();
+    ////        mob.Die();
+    ////    }
     //}
 }

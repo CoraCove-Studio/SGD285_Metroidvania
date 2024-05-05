@@ -15,6 +15,8 @@ public class TrashMobBehavior : MonoBehaviour
     private AIState currentState = AIState.idle;
     private NavMeshAgent agent;
 
+    private Rigidbody rb;
+
     private Animation anim;
     private bool isDead = false;
     
@@ -26,6 +28,7 @@ public class TrashMobBehavior : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animation>();
+        rb = GetComponent<Rigidbody>();
 
         anim.Play();
     }
@@ -106,11 +109,12 @@ public class TrashMobBehavior : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        agent.enabled = false;
+        //agent.enabled = false;
         CancelInvoke(nameof(ShootAtPlayer));
         PlayAnimationByName("die");
-        agent.areaMask = 0;
-        Invoke("OnDisableDeath", 5f);
+        rb.isKinematic = true;
+        //agent.areaMask = 0;
+        //Invoke("OnDisableDeath", 5f);
     }
 
     void PlayAnimationByName(string animationName)

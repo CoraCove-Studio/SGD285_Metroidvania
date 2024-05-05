@@ -12,11 +12,18 @@ using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private AudioSource sfx_AudioSource;
+
     [SerializeField] private List<GameObject> _menuPanels = new();
     [SerializeField] private GameObject _activePanel;
     [SerializeField] private TextMeshProUGUI textObject;
     private readonly string winMessage = "You have prevailed!";
     private readonly string lossMessage = "You have expired.";
+
+    private void Start()
+    {
+        sfx_AudioSource = GetComponent<AudioSource>();
+    }
 
     public void OnStart()
     {
@@ -53,5 +60,10 @@ public class MainMenuManager : MonoBehaviour
         textObject.text = lossMessage;
         _activePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void SFX_On_Button_Click()
+    {
+        sfx_AudioSource.Play();
     }
 }
