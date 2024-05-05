@@ -1,10 +1,12 @@
 ///////////////////////
 // Script Contributors:
 // Emma Cole
+// Rachel Huggins (Animations)
 ///////////////////////
 
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class TrashMobBehavior : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class TrashMobBehavior : MonoBehaviour
 
     private AIState currentState = AIState.idle;
     private NavMeshAgent agent;
+
+    private Animation anim;
     
     [SerializeField] private GameObject playerObject;
     private float distanceFromPlayer;
@@ -20,6 +24,9 @@ public class TrashMobBehavior : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animation>();
+
+        anim.Play();
     }
 
     // Update is called once per frame
@@ -36,6 +43,7 @@ public class TrashMobBehavior : MonoBehaviour
         {
             playerSeen = true;
             currentState = AIState.attack;
+            InvokeRepeating("Run", .9f, .9166f);
             InvokeRepeating(nameof(ShootAtPlayer), 0f, 4.0f);
         }
         else
@@ -71,6 +79,7 @@ public class TrashMobBehavior : MonoBehaviour
             // Check if the collider of the hit object has the tag "player"
             if (hitInfo.collider.CompareTag(TagManager.PLAYER))
             {
+                PlayAnimationByName("attack");
                 print("hit player");
                 //Player's Take Damage Here
             }
@@ -90,6 +99,31 @@ public class TrashMobBehavior : MonoBehaviour
     public void Die()
     {
         CancelInvoke(nameof(ShootAtPlayer));
-        gameObject.SetActive(false);
+        PlayAnimationByName("die");
+        agent.areaMask = 0;
+        Invoke("OnDisableDeath", 5f);
+    }
+
+    void PlayAnimationByName(string animationName)
+    {
+        // Checking if animation exists and will play it
+        if (anim[animationName] != null)
+        {
+            anim.Play(animationName);
+        }
+        else
+        {
+            Debug.Log("Animation not found: " + animationName);
+        }
+    }
+
+    private void OnDisableDeath()
+    {
+       gameObject.SetActive(false);
+    }
+
+    void Run()
+    {
+        PlayAnimationByName("run");
     }
 }

@@ -733,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3319521142777816746}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.96521026, z: 0, w: 0.26147518}
+  m_LocalRotation: {x: 0, y: -0.96521074, z: 0, w: 0.26147333}
   m_LocalPosition: {x: 1.2106102, y: 0.015383244, z: -2.8545992}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -741,7 +741,7 @@ Transform:
   - {fileID: 525250737729915419}
   - {fileID: 1337064546739532351}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -149.685, z: 0}
 --- !u!111 &1353012312181483395
 Animation:
   m_ObjectHideFlags: 0
@@ -751,15 +751,15 @@ Animation:
   m_GameObject: {fileID: 3319521142777816746}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  m_Animation: {fileID: -5252816984213320552, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
   m_Animations:
-  - {fileID: 7400004, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400002, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400006, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400008, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400010, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400012, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
-  - {fileID: 7400014, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: -5252816984213320552, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: 6200578666267062213, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: 4878551826107400361, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: -6239216113759591374, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: -905509598024235639, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: -5455075036266976943, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
+  - {fileID: 1612858678025900376, guid: 86c591ebd74142c4d93243d9fa9544da, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
