@@ -5,20 +5,19 @@
 // 
 ///////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
     private PlayerControls controlScheme;
-    private int maxHealth = 100;
+    [SerializeField] private HealthBar healthBar;
+    private readonly int maxHealth = 100;
     private int health;
     private bool invincible = false;
-    private int weaponLevel = 1;
 
     private void Awake()
     {
+        health = maxHealth;
         //controlScheme.Gameplay.ToggleInvincibility.performed += ctx => ToggleInvincibility();
     }
 
@@ -32,6 +31,7 @@ public class PlayerManager : MonoBehaviour
         if (invincible == false)
         {
             health = Mathf.Clamp(health - damageAmount, 0, maxHealth);
+            healthBar.UpdateDesiredBarPos(health, maxHealth);
             if (health == 0)
             {
                 Die();
@@ -42,15 +42,23 @@ public class PlayerManager : MonoBehaviour
     public void Heal(int amountToHeal)
     {
         health = Mathf.Clamp(health + amountToHeal, 0, maxHealth);
-    }
-
-    private void LevelUpWeapon()
-    {
-        weaponLevel += 1;
+        healthBar.UpdateDesiredBarPos(health, maxHealth);
     }
 
     private void Die()
     {
         // call loss panel or lose life
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.K))
+    //    {
+    //        TakeDamage(15);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        Heal(15);
+    //    }
+    //}
 }

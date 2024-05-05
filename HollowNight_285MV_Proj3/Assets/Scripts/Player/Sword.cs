@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
+
 using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         if (other.CompareTag(TagManager.BOSS))
         {
             BossController bossController = other.gameObject.GetComponent<BossController>();

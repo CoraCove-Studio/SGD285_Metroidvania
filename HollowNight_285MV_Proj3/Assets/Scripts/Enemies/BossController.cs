@@ -175,6 +175,7 @@ public class BossController : MonoBehaviour
         isPlayerInArena = false;
         isDead = true;
         door.OpenDoor();
+        StopAllCoroutines();
     }
 
     private void BasicAttack()

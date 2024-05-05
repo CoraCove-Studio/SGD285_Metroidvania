@@ -1,3 +1,10 @@
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
+
 using System.Collections;
 using UnityEngine;
 

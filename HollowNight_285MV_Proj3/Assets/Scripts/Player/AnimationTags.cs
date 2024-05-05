@@ -1,6 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+///////////////////////
+// Script Contributors:
+// 
+// Zeb Baukhagen
+// 
+///////////////////////
 
 public class AnimationTags
 {
